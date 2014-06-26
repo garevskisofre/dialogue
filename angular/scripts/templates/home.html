@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dialogue</a>
+        <form class="navbar-form navbar-right" style="margin-top:12px">
+            <div class="form-group">
+                <img class="userImage" src="{{user.imageurl}}">
+                <label class="userFont">{{user.first_name}}&nbsp;{{user.last_name}}</label>
+            </div>
+            <button class="btn btn-xs btn-primary" ng-click="logOut()">Log out</button>
+        </form>
+    </div>
+</nav>
+
+<div class="col-xs-11">
+    <div class="panel panel-default row panelChatHistory">
+        <div class="panel-heading">
+            <img class="displayBlock" src="{{selectedUser.imageurl}}"/>
+            <h3 class="panel-title displayBlock">{{selectedUser.first_name}}&nbsp;{{selectedUser.last_name}}</h3>
+        </div>
+        <div class="panel-body chatHistoryBody">
+            <div ng-repeat="r in chatHistory[selectedUser.username].messages">
+                <div class="displayBlock" style="vertical-align:top;margin-top:5px">
+                    <img ng-src="{{r.user.imageurl}}" width="30" height="30"/> 
+                </div>
+                <div class="displayBlock">
+                    <strong>{{r.user.first_name}} {{r.user.last_name}}</strong>
+                    <p class="separateLine">{{r.message}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default row panelChatMessage">
+        <div class="panel-body" style="padding:0px;">
+            <textarea ng-model="message" class="chatMessage" placeholder="Type something..." ng-keydown="sendMessageKey()"></textarea>
+        </div>
+        <div class="panel-footer col-xs-16" style="padding:5px;">
+            <div class="displayBlock col-xs-14">
+                <!-- Ovde treba da bidat ostanatite funkcionalnosti -->
+            </div>
+            <div class="displayBlock col-xs-2">
+               <button type="submit" class="btn btn-xs btn-primary" ng-click="sendMessage(message)">Send</button> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-5 friendsPanel">
+    <div class="friendsList row-mod mainBackground">
+        <div ng-repeat="r in user.friends | filter:phrase" class="row-hover" ng-click="selectUser(r)">
+            <div class="col-xs-3">
+                <img class="userImageChat" ng-src="{{r.imageurl}}" />
+            </div>
+            <div class="col-xs-13-mod">
+                <span class="col-xs-14">{{r.first_name}}&nbsp;{{r.last_name}}</span>
+                <span class="col-xs-2" style="padding-left:0px">
+                    <div ng-class="{'circleBase':chatHistory[r.username].seen}"></div>
+                    <img src="./templates/images/chat_icon.png" width="20" height="20" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="mainBackground row-mod">
+        <div class="input-group input-group-sm">
+            <input type="text" ng-model="phrase" class="form-control borderRadiusReset" />
+            <span class="input-group-addon borderRadiusReset">
+                <img src="./templates/images/glyphicons_027_search.png" class="glyphicon-mod" />
+            </span>
+        </div>
+    </div>
+</div>

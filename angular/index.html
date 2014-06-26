@@ -1,0 +1,29 @@
+<html ng-app="app" ng-controller="main">
+	<head>
+		<title>Dialogue</title>
+		<!-- Styles files -->
+		<link rel="stylesheet" type="text/css" href="styles/stylesheets/styles.css">
+	</head>
+	<body>
+		<div class="container" ng-view>
+
+		</div>
+		<!-- CryptoJS -->
+		<script type="text/javascript" src="scripts/tripledes.js"></script>
+		<!-- Angular libs -->
+		<script type="text/javascript" src="scripts/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/angular-route.min.js"></script>
+		<script type="text/javascript" src="scripts/angular-resource.min.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="scripts/angular-sanitize.min.js"></script>
+		<!-- Controllers -->
+		<script type="text/javascript" src="scripts/controllers/main.js"></script>
+		<!-- Routes -->
+		<script type="text/javascript" src="scripts/routes.js"></script>
+		<!-- Services -->
+		<script type="text/javascript" src="scripts/factory/userService.js"></script>
+		<script type="text/javascript" src="scripts/factory/authInterceptor.js"></script>
+		<script type="text/javascript" src="scripts/factory/dataTransfer.js"></script>
+		
+	</body>
+</html>

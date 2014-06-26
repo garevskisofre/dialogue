@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Dialogue</a>
+        <form class="navbar-form navbar-right" style="margin-top:12px">
+            <div class="form-group">
+                <input type="text" placeholder="User name" ng-model="user.username" autofocus="true" />
+                <input type="password" placeholder="Password" ng-model="user.password" />
+            </div>
+            <button type="submit" class="btn btn-xs btn-primary" type="submit" ng-click="login(user)">Submit</button>
+        </form>
+    </div>
+</nav>
+<div class="col-xs-16 mainBackground">
+    <div class="col-xs-8">
+        <img src="./templates/images/globus.png" class="globus">
+    </div>
+    <div class="col-xs-8">
+        <br/>
+        <h2>Or register</h2>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-xs-5 control-label">First name</label>
+                <div>
+                    <input type="text" class="col-xs-9" placeholder="First name" ng-model="newUser.firstname" title="Use a-z or A-Z" maxlength="100" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-5">Last name</label>
+                <div>
+                    <input type="text" title="Use a-z or A-Z" class="col-xs-9" placeholder="Last name" ng-model="newUser.lastname" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-5">Username</label>
+                <div>
+                    <input type="text" title="Use a-z or A-Z or 0-9" class="col-xs-9" ng-blur="checkNickname(newUser.username)" placeholder="Username" ng-model="newUser.username" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label col-xs-5">Password</label>
+                <div>
+                    <input type="password" title="Enter password" class="col-xs-9" placeholder="Password" ng-model="newUser.password" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label col-xs-5">Re-type password</label>
+                <div>
+                    <input type="password" title="Enter password again" class="col-xs-9" placeholder="Re-type password" ng-model="newUser.password2" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-5">Gender</label>
+                <div>
+                    <select title="Choose gender" class="col-xs-9" ng-model="newUser.sex">
+                        <option value="true">Male</option>
+                        <option value="false">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-5">
+                    <button type="submit" class="btn btn-primary col-xs-10" ng-disabled="!checkFields(newUser)" ng-click="createUser(newUser)">Sign up</button>
+                </div>
+            </div>
+        </form>
+        <br/>
+    </div>
+</div>
